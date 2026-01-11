@@ -1,0 +1,460 @@
+{
+    "model_terbaik": "Extra Trees Advanced",
+    "extra_trees_advanced": {
+        "akurasi": 1.0,
+        "presisi": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "klasifikasi": {
+            "baik": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 2
+            },
+            "buruk": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 1
+            },
+            "sangat baik": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 6
+            },
+            "sangat buruk": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 2
+            },
+            "standar": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 4
+            },
+            "accuracy": 1.0,
+            "macro avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 15
+            },
+            "weighted avg": {
+                "precision": 1.0,
+                "recall": 1.0,
+                "f1-score": 1.0,
+                "support": 15
+            }
+        },
+        "confusion_matrix": [
+            [
+                2,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                1,
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                6,
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                0,
+                2,
+                0
+            ],
+            [
+                0,
+                0,
+                0,
+                0,
+                4
+            ]
+        ]
+    },
+    "all_models_performance": {
+        "gaussian_nb_optimized": {
+            "akurasi": 0.3333333333333333,
+            "presisi": 0.5936507936507937,
+            "recall": 0.3333333333333333,
+            "f1_score": 0.2957671957671958
+        },
+        "random_forest_advanced": {
+            "akurasi": 0.9333333333333333,
+            "presisi": 0.9428571428571428,
+            "recall": 0.9333333333333333,
+            "f1_score": 0.9311355311355312
+        },
+        "extra_trees_advanced": {
+            "akurasi": 1.0,
+            "presisi": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "gradient_boosting_advanced": {
+            "akurasi": 0.9333333333333333,
+            "presisi": 0.9555555555555555,
+            "recall": 0.9333333333333333,
+            "f1_score": 0.936969696969697
+        },
+        "svm_advanced": {
+            "akurasi": 1.0,
+            "presisi": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "knn_optimized": {
+            "akurasi": 1.0,
+            "presisi": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "logistic_regression": {
+            "akurasi": 0.6,
+            "presisi": 0.7711111111111111,
+            "recall": 0.6,
+            "f1_score": 0.6349206349206349
+        },
+        "ensemble_soft_voting": {
+            "akurasi": 1.0,
+            "presisi": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        },
+        "ensemble_hard_voting": {
+            "akurasi": 1.0,
+            "presisi": 1.0,
+            "recall": 1.0,
+            "f1_score": 1.0
+        }
+    },
+    "cv_scores": {
+        "Gaussian NB Optimized": {
+            "mean": 0.45712301587301585,
+            "std": 0.10914589402459308,
+            "scores": [
+                0.3074074074074074,
+                0.5259259259259259,
+                0.4444444444444444,
+                0.4444444444444444,
+                0.5555555555555556,
+                0.4083333333333333,
+                0.5541666666666667,
+                0.5083333333333333,
+                0.23333333333333334,
+                0.5892857142857143
+            ]
+        },
+        "Random Forest Advanced": {
+            "mean": 0.807851631393298,
+            "std": 0.16872371508903639,
+            "scores": [
+                0.8994708994708994,
+                0.8765432098765431,
+                1.0,
+                0.6839506172839506,
+                1.0,
+                0.6944444444444444,
+                1.0,
+                0.5714285714285714,
+                0.8214285714285714,
+                0.5312499999999999
+            ]
+        },
+        "Extra Trees Advanced": {
+            "mean": 0.9082705026455026,
+            "std": 0.10290919691169205,
+            "scores": [
+                0.8994708994708994,
+                1.0,
+                1.0,
+                0.8444444444444444,
+                1.0,
+                0.8194444444444444,
+                1.0,
+                1.0,
+                0.8214285714285714,
+                0.6979166666666666
+            ]
+        },
+        "Gradient Boosting Advanced": {
+            "mean": 0.8364010141093473,
+            "std": 0.1479976538592009,
+            "scores": [
+                0.8994708994708994,
+                0.8765432098765431,
+                1.0,
+                0.8444444444444444,
+                1.0,
+                0.6944444444444444,
+                1.0,
+                0.6964285714285714,
+                0.8214285714285714,
+                0.5312499999999999
+            ]
+        },
+        "SVM Advanced": {
+            "mean": 0.8756481481481482,
+            "std": 0.05601537006325619,
+            "scores": [
+                0.8994708994708994,
+                0.8888888888888888,
+                1.0,
+                0.8444444444444444,
+                0.8994708994708994,
+                0.8194444444444444,
+                0.9285714285714286,
+                0.8214285714285714,
+                0.8333333333333333,
+                0.8214285714285714
+            ]
+        },
+        "KNN Optimized": {
+            "mean": 0.85904651675485,
+            "std": 0.10937403204435839,
+            "scores": [
+                0.8518518518518519,
+                1.0,
+                1.0,
+                0.6839506172839506,
+                0.8444444444444444,
+                0.8194444444444444,
+                1.0,
+                0.8714285714285714,
+                0.8214285714285714,
+                0.6979166666666666
+            ]
+        },
+        "Logistic Regression": {
+            "mean": 0.6578560405643739,
+            "std": 0.1164259865314739,
+            "scores": [
+                0.8994708994708994,
+                0.5,
+                0.7777777777777778,
+                0.6172839506172839,
+                0.6666666666666665,
+                0.736111111111111,
+                0.6874999999999999,
+                0.5520833333333333,
+                0.6083333333333334,
+                0.5333333333333333
+            ]
+        }
+    },
+    "resampling_results": {
+        "SMOTEENN": {
+            "GaussianNB": 0.45,
+            "RandomForest": 0.95,
+            "GradientBoosting": 0.7
+        },
+        "SMOTETomek": {
+            "GaussianNB": 0.30851063829787234,
+            "RandomForest": 0.5212765957446809,
+            "GradientBoosting": 0.43617021276595747
+        },
+        "BorderlineSMOTE-1": {
+            "GaussianNB": 0.3275862068965517,
+            "RandomForest": 0.46551724137931033,
+            "GradientBoosting": 0.46551724137931033
+        },
+        "BorderlineSMOTE-2": {
+            "GaussianNB": 0.29310344827586204,
+            "RandomForest": 0.46551724137931033,
+            "GradientBoosting": 0.4224137931034483
+        },
+        "ADASYN": "Error: No samples will be generated with the provided ratio settings.",
+        "SMOTE_k3": {
+            "GaussianNB": 0.25,
+            "RandomForest": 0.47413793103448276,
+            "GradientBoosting": 0.41379310344827586
+        },
+        "SMOTE_k5": {
+            "GaussianNB": 0.25862068965517243,
+            "RandomForest": 0.5,
+            "GradientBoosting": 0.47413793103448276
+        }
+    },
+    "scaling_results": {
+        "RobustScaler": 0.28,
+        "QuantileTransformer": 0.26,
+        "PowerTransformer": 0.27,
+        "StandardScaler": 0.28,
+        "MinMaxScaler": 0.28
+    },
+    "feature_importance": [
+        {
+            "feature": "density_proxy",
+            "mi_score": 0.12588413784762853,
+            "f_score": 2.685598186289604,
+            "avg_rank": 6.5
+        },
+        {
+            "feature": "ukuran_rata2_per_10_biji_log",
+            "mi_score": 0.08732115788807393,
+            "f_score": 2.8450256610686386,
+            "avg_rank": 8.0
+        },
+        {
+            "feature": "ukuran_rata2_per_10_biji_sqrt",
+            "mi_score": 0.07842637386369855,
+            "f_score": 2.65578974986574,
+            "avg_rank": 10.0
+        },
+        {
+            "feature": "ukuran_air_interaction",
+            "mi_score": 0.05497693445685092,
+            "f_score": 2.9226678543178832,
+            "avg_rank": 10.0
+        },
+        {
+            "feature": "berat_ukuran_ratio",
+            "mi_score": 0.09369874315527005,
+            "f_score": 2.4240208378667822,
+            "avg_rank": 10.0
+        },
+        {
+            "feature": "ukuran_rata2_per_10_biji",
+            "mi_score": 0.09380254307065039,
+            "f_score": 2.384838057570462,
+            "avg_rank": 10.0
+        },
+        {
+            "feature": "ukuran_rata2_per_10_biji_squared",
+            "mi_score": 0.09833977036361308,
+            "f_score": 1.8243525084776462,
+            "avg_rank": 11.5
+        },
+        {
+            "feature": "warna_hitam",
+            "mi_score": 0.010344817820502783,
+            "f_score": 3.7457321386669147,
+            "avg_rank": 12.0
+        },
+        {
+            "feature": "tekstur",
+            "mi_score": 0.008671088732388643,
+            "f_score": 3.8036973669799647,
+            "avg_rank": 13.0
+        },
+        {
+            "feature": "feature_skew",
+            "mi_score": 0.06416696291886836,
+            "f_score": 2.3653163880569688,
+            "avg_rank": 13.5
+        },
+        {
+            "feature": "warna_coklat tua",
+            "mi_score": 0.0005777047086388265,
+            "f_score": 5.559190114564868,
+            "avg_rank": 14.0
+        },
+        {
+            "feature": "feature_mean",
+            "mi_score": 0.016947518934041117,
+            "f_score": 2.645471574524483,
+            "avg_rank": 14.0
+        },
+        {
+            "feature": "ukuran_rata2_per_10_biji_cubed",
+            "mi_score": 0.08105913422134359,
+            "f_score": 1.4108760411968921,
+            "avg_rank": 14.5
+        },
+        {
+            "feature": "berat_per_10_biji_sqrt",
+            "mi_score": 0.1428959119219031,
+            "f_score": 1.060750875228198,
+            "avg_rank": 14.5
+        },
+        {
+            "feature": "berat_air_interaction",
+            "mi_score": 0.06448808583742371,
+            "f_score": 1.465474650907341,
+            "avg_rank": 15.0
+        },
+        {
+            "feature": "berat_per_10_biji_log",
+            "mi_score": 0.12676258961972842,
+            "f_score": 1.121340366571205,
+            "avg_rank": 15.0
+        },
+        {
+            "feature": "berat_per_10_biji",
+            "mi_score": 0.14907305108317281,
+            "f_score": 0.9772037522958552,
+            "avg_rank": 15.0
+        },
+        {
+            "feature": "tekstur_sedang",
+            "mi_score": 0.0,
+            "f_score": 3.9482012965860025,
+            "avg_rank": 17.0
+        },
+        {
+            "feature": "berat_per_10_biji_squared",
+            "mi_score": 0.1290215019640888,
+            "f_score": 0.8237572824825414,
+            "avg_rank": 17.5
+        },
+        {
+            "feature": "berat_per_10_biji_cubed",
+            "mi_score": 0.13531272561214625,
+            "f_score": 0.6973339685030769,
+            "avg_rank": 17.5
+        },
+        {
+            "feature": "ukuran_category",
+            "mi_score": 0.009668580048028286,
+            "f_score": 1.9836885209999313,
+            "avg_rank": 18.0
+        },
+        {
+            "feature": "berat_category",
+            "mi_score": 0.0,
+            "f_score": 2.566988860745868,
+            "avg_rank": 21.0
+        },
+        {
+            "feature": "tekstur_halus",
+            "mi_score": 0.0,
+            "f_score": 2.149813700123063,
+            "avg_rank": 23.0
+        },
+        {
+            "feature": "warna",
+            "mi_score": 0.022487915352388033,
+            "f_score": 1.0365658567864415,
+            "avg_rank": 23.0
+        },
+        {
+            "feature": "kadar_air_log",
+            "mi_score": 0.00012754798359493336,
+            "f_score": 1.332071097960786,
+            "avg_rank": 23.5
+        }
+    ],
+    "pipeline_info": {
+        "feature_engineering": "Advanced with polynomial, statistical, and interaction features",
+        "scaling": "RobustScaler",
+        "feature_selection": "SelectKBest (k=25)",
+        "resampling": "SMOTEENN",
+        "final_model": "Extra Trees Advanced"
+    }
+}

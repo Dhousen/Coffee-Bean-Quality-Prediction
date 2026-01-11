@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Cari Biji Kopi{% endblock %}
+
+{% block header %}Temukan Biji Kopi Robusta Sesuai dengan Kriteria yang Anda Cari{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto p-6 bg-black bg-opacity-30 rounded-lg mt-10" style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 215, 0, 0.4);">
+  <h2 class="text-2xl font-bold mb-6 text-center text-yellow-300">Cari Biji Kopi Sesuai Kriteria</h2>
+  
+  <!-- ✅ FORM DENGAN ACTION YANG TEPAT -->
+  <form method="POST" action="{{ url_for('hasil_cari') }}">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Harga Maksimal (Rp)</label>
+        <input type="number" name="harga" min="1" max="1000000" required
+              class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Kualitas Biji Kopi</label>
+        <select name="kualitas" required
+                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-black focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          <option value="sangat baik">Sangat Baik</option>
+          <option value="baik">Baik</option>
+          <option value="standar">Standar</option>
+          <option value="buruk">Buruk</option>
+          <option value="sangat buruk">Sangat Buruk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Berat per 10 biji kopi (gram)</label>
+        <input type="number" step="0.01" name="berat" required
+              class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Ukuran rata-rata (mm)</label>
+        <input type="number" step="0.01" name="ukuran" required
+              class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Tekstur</label>
+        <select name="tekstur" required
+                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          <option value="kasar">Kasar</option>
+          <option value="sedang">Sedang</option>
+          <option value="halus">Halus</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium mb-2 text-white">Warna</label>
+        <select name="warna" required
+                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+          <option value="hitam">Hitam</option>
+          <option value="coklat tua">Coklat Tua</option>
+          <option value="coklat muda">Coklat Muda</option>
+          <option value="kemerahan">Kemerahan</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <label class="block text-sm font-medium mb-2 text-white">Kadar Air (%)</label>
+      <input type="number" step="0.1" min="0" max="100" name="kadar_air" required
+            class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-lg text-lg transition-all hover:scale-105">
+        Cari Biji Kopi
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

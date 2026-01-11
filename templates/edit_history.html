@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Riwayat - Kopi Robusta{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: url('/static/img/wallpaper.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+
+<div class="min-h-screen flex flex-col items-center justify-start px-4 py-10">
+    <div class="w-full max-w-2xl p-8 bg-black bg-opacity-30 rounded-lg"
+         style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 215, 0, 0.4);">
+        
+        <h2 class="text-3xl font-bold text-yellow-300 text-center mb-8"> Edit Riwayat Prediksi</h2>
+
+        <form method="POST" class="space-y-6">
+            <!-- Nama Penguji -->
+            <div>
+                <label class="block mb-2 text-lg font-semibold text-white">Nama Penguji</label>
+                <input type="text" name="nama_penguji" value="{{ riwayat.nama_penguji }}"
+                       class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                       required>
+            </div>
+
+            <!-- Tempat Produksi -->
+            <div>
+                <label class="block mb-2 text-lg font-semibold text-white">Tempat Produksi</label>
+                <input type="text" name="tempat_produksi" value="{{ riwayat.tempat_produksi }}"
+                       class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                       required>
+            </div>
+
+            <!-- Harga -->
+            <div>
+                <label class="block mb-2 text-lg font-semibold text-white">Harga (Rp)</label>
+                <input type="number" step="0.01" name="harga" value="{{ riwayat.harga }}"
+                       class="w-full p-3 rounded-lg bg-white bg-opacity-10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                       required>
+            </div>
+
+            <!-- Tombol -->
+            <div class="flex flex-col md:flex-row justify-between gap-4 pt-4">
+                <button type="submit" 
+                        class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all hover:scale-105">
+                     Simpan Perubahan
+                </button>
+                <a href="{{ url_for('history') }}" 
+                   class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all hover:scale-105 text-center">
+                     Batal
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

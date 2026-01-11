@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Hasil Pencarian - Kopi Robusta{% endblock %}
+
+{% block content %}
+<div class="glass p-6 rounded-2xl space-y-6">
+  <h2 class="text-2xl font-bold text-yellow-300 text-center">Hasil Pencarian Biji Kopi Robusta</h2>
+
+  {% if hasil_pencarian %}
+  <div class="overflow-x-auto rounded-xl mt-6">
+    <table class="min-w-full text-sm text-white border border-yellow-500 border-opacity-30">
+      <thead class="bg-yellow-800 bg-opacity-40 text-yellow-200">
+        <tr>
+          <th class="px-4 py-2 text-left">No.</th>
+          <th class="px-4 py-2 text-left">Nama Penguji</th>
+          <th class="px-4 py-2 text-left">Berat (g)</th>
+          <th class="px-4 py-2 text-left">Ukuran (mm)</th>
+          <th class="px-4 py-2 text-left">Kadar Air (%)</th>
+          <th class="px-4 py-2 text-left">Tekstur</th>
+          <th class="px-4 py-2 text-left">Warna</th>
+          <th class="px-4 py-2 text-left">Harga (Rp)</th>
+          <th class="px-4 py-2 text-left">Tempat Produksi</th>
+          <th class="px-4 py-2 text-left">Tanggal Prediksi</th>
+          <th class="px-4 py-2 text-left">Hasil Prediksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in hasil_pencarian %}
+        <tr class="hover:bg-yellow-900 hover:bg-opacity-10 transition border-t border-white border-opacity-10">
+          <td class="px-4 py-2">{{ loop.index }}</td>
+          <td class="px-4 py-2">{{ data.nama_penguji or '-' }}</td>
+          <td class="px-4 py-2">{{ data.berat }}</td>
+          <td class="px-4 py-2">{{ data.ukuran }}</td>
+          <td class="px-4 py-2">{{ data.kadar_air }}</td>
+          <td class="px-4 py-2">{{ data.tekstur }}</td>
+          <td class="px-4 py-2">{{ data.warna }}</td>
+          <td class="px-4 py-2">{{ data.harga }}</td>
+          <td class="px-4 py-2">{{ data.tempat_produksi or '-' }}</td>
+          <td class="px-4 py-2">{{ data.tanggal_prediksi.strftime('%d-%m-%Y %H:%M') if data.tanggal_prediksi else '-' }}</td>
+          <td class="px-4 py-2 font-semibold">{{ data.hasil or '-' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% else %}
+  <div class="alert alert-warning text-center mt-4 bg-yellow-100 text-yellow-800 p-4 rounded-lg">
+    <i class="bi bi-exclamation-circle-fill me-2"></i>
+    Tidak ditemukan data yang cocok dengan kriteria pencarian.
+  </div>
+  {% endif %}
+
+  <div class="flex justify-center mt-6">
+    <a href="{{ url_for('cari_kopi') }}" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded-lg transition">
+      Kembali ke Form Pencarian
+    </a>
+  </div>
+</div>
+{% endblock %}

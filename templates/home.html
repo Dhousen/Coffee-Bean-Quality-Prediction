@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Kopi Robusta{% endblock %}
+
+{% block header %}Prediksi Kualitas Biji Kopi Robusta dengan Algoritma Naive Bayes{% endblock %}
+
+{% block content %}
+<!-- Section Hero -->
+<section class="relative min-h-[calc(100vh-160px)] flex items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed mb-6">
+  <div class="absolute inset-0 bg-black bg-opacity-30 rounded-2xl" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 215, 0, 0.4);"></div>
+
+  <div class="container mx-auto px-6 py-10 relative z-10">
+    <div class="flex flex-col md:flex-row items-center">
+      <!-- Text Content -->
+      <div class="flex-1 text-center md:text-left mb-10 md:mb-0">
+        <h2 id="typed-text" class="text-xl md:text-4xl font-bold text-white drop-shadow mb-2"></h2>
+        <hr class="block bg-yellow-400 h-1 w- border-none my-2 mx-auto md:mx-0">
+        <h1 class="text-2xl md:text-3xl font-semibold text-white mb-6">Mulai prediksi kualitas kopi robusta Anda!</h1>
+        <a href="/form" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-4 rounded-lg transition shadow-lg transform hover:scale-105">
+          Mulai Prediksi
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Carousel -->
+<section class="py-10">
+  <div class="container mx-auto px-6">
+    <div class="relative overflow-hidden rounded-3xl bg-black bg-opacity-30 backdrop-blur-lg border border-white border-opacity-20 p-6 shadow-lg" style="border: 1px solid rgba(255, 215, 0, 0.4)">
+      <div id="carousel" class="flex space-x-6 will-change-transform">
+        {% for item in [
+          {"text": "Hasil prediksinya mudah di mengerti dan tampilannya keren!", "user": "Budi"},
+          {"text": "Prediksi kualitasnya akurat dan membantu saya memilih kopi terbaik.", "user": "Sari"},
+          {"text": "Websitenya simple keren dan alurnya mudah dipahami!", "user": "Andi"},
+          {"text": "Sangat puas dengan hasil prediksinya, kopi saya jadi lebih berkualitas!", "user": "Lina"},
+          {"text": "Website ini membantu saya memilih biji kopi berkualitas dengan rasa yang luar biasa!", "user": "Budi"},
+          {"text": "Prediksi kualitasnya akurat dan membantu saya memilih kopi terbaik.", "user": "Sari"}
+        ] %}
+        <div class="min-w-[300px] bg-white bg-opacity-20 rounded-lg shadow-lg p-6 flex-shrink-0 backdrop-blur-sm border border-white border-opacity-20">
+          <p class="text-white mb-4">"{{ item.text }}"</p>
+          <h3 class="font-semibold text-yellow-400">- {{ item.user }}</h3>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Typed.js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var typed = new Typed("#typed-text", {
+    strings: [
+      `Selamat Datang di Website Prediksi Kualitas Biji Kopi Robusta Kami!`,
+      "Ayo Mulai Prediksi Kualitas Kopi Robusta Anda Sekarang!",
+      "Cepat, Akurat, dan Tentunya Profesional!"
+    ],
+    typeSpeed: 60,
+    backSpeed: 25,
+    backDelay: 1500,
+    loop: true
+  });
+</script>
+
+<!-- Carousel Auto Scroll -->
+<script>
+  const carousel = document.getElementById('carousel');
+  let scrollAmount = 0;
+  const scrollStep = 1;
+  function autoScroll() {
+    scrollAmount += scrollStep;
+    if (scrollAmount >= carousel.scrollWidth / 2) {
+      scrollAmount = 0;
+    }
+    carousel.style.transform = `translateX(-${scrollAmount}px)`;
+    requestAnimationFrame(autoScroll);
+  }
+  window.addEventListener('load', () => {
+    requestAnimationFrame(autoScroll);
+  });
+</script>
+
+<style>
+  html, body {
+    height: 100%;
+  }
+  #carousel {
+    display: flex;
+    width: max-content;
+  }
+</style>
+{% endblock %}

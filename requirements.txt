@@ -1,0 +1,78 @@
+# Aplikasi Prediksi Kualitas Biji Kopi Robusta
+
+Aplikasi ini merupakan sistem prediksi kualitas biji kopi Robusta berbasis web menggunakan algoritma **Naive Bayes**. Proyek ini dikembangkan sebagai bagian dari implementasi metode data mining dalam pengambilan keputusan kualitas produk kopi.
+
+## 🚀 Fitur Aplikasi
+
+- Prediksi kualitas biji kopi Robusta (Sangat Buruk - Sangat Baik)
+- Penyimpanan riwayat hasil prediksi
+- Evaluasi model secara langsung dari halaman web
+- Autentikasi pengguna (Login & Register)
+- Visualisasi hasil prediksi dan evaluasi model
+- Dilengkapi dengan teknik preprocessing dan feature engineering
+
+---
+
+## 🧠 Metodologi Data Mining
+
+### 1. **Dataset**
+- Sumber: `dataset_kopi_robusta.csv`
+- Fitur utama:
+  - Berat per 10 biji
+  - Ukuran rata-rata per 10 biji
+  - Tekstur (kasar, sedang, halus)
+  - Warna (hitam, coklat tua, coklat muda, kemerahan)
+  - Harga per kg
+  - Kadar air (ditambahkan)
+  - Label kualitas (sangat buruk - sangat baik)
+
+### 2. **Preprocessing**
+- Handling missing values (`dropna`)
+- Encoding kategori: tekstur, warna, dan label
+- Feature engineering: menambahkan fitur baru `berat_per_ukuran`
+- Normalisasi data numerik menggunakan `StandardScaler`
+
+### 3. **Algoritma**
+- Naive Bayes Classifier (`GaussianNB`)
+- Model dilatih melalui file `train_model.py`
+- Model disimpan dalam `model_nb.pkl`, dan scaler di `scaler.pkl`
+
+### 4. **Evaluasi**
+- Akurasi, Precision, Recall, dan F1-Score
+- Confusion Matrix
+- Tersedia di halaman `/evaluasi_model`
+
+---
+
+## 📂 Struktur Folder
+
+```bash
+KOPI_APP/
+├── app.py                   # Main Flask app
+├── train_model.py           # Script training model
+├── dataset_kopi_robusta.csv # Dataset utama
+├── model_nb.pkl             # Model terlatih (Naive Bayes)
+├── scaler.pkl               # Scaler untuk normalisasi
+│
+├── models/                  # Model database dan logika ML
+│   ├── base.py
+│   ├── db.py
+│   ├── naive_bayes.py
+│   └── user.py
+│
+├── utils/
+│   └── preprocessing.py     # Fungsi preprocessing tambahan
+│
+├── templates/               # Template HTML untuk Flask
+│   ├── base.html
+│   ├── form_input.html
+│   ├── hasil_prediksi.html
+│   ├── evaluasi_model.html
+│   ├── history.html
+│   ├── home.html
+│   ├── login.html
+│   └── register.html
+│
+├── static/                  # Folder static assets (CSS, JS, dsb.)
+├── db_prediksi.db           # Database SQLite untuk histori
+└── your_database.db         # Database pengguna (opsional)

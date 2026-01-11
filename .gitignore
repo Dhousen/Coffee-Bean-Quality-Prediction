@@ -1,0 +1,55 @@
+# =====================
+# Python cache
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =====================
+# Virtual environment
+# =====================
+venv/
+.env/
+.env.local/
+
+# =====================
+# Database (SQLite)
+# =====================
+instance/
+*.db
+
+# =====================
+# Alembic
+# =====================
+alembic/versions/__pycache__/
+
+# =====================
+# Model hasil training
+# =====================
+*.pkl
+
+# =====================
+# Dataset mentah (opsional)
+# Jika dataset bisa digenerate ulang
+# =====================
+dataset_*.csv
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# Editor & OS
+# =====================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =====================
+# Temporary files
+# =====================
+*.tmp
+*.bak

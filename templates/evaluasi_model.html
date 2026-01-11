@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Evaluasi Model{% endblock %}
+
+{% block header %}Evaluasi Model Kualitas Biji Kopi{% endblock %}
+
+{% block content %}
+<div class="glass p-6 rounded-lg space-y-6">
+  <h2 class="text-center text-2xl font-bold text-yellow-300 mb-4">Hasil Evaluasi Model</h2>
+
+  {% if akurasi %}
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="bg-yellow-800 bg-opacity-30 p-4 rounded-lg shadow text-center">
+      <p class="text-sm text-yellow-200">Akurasi</p>
+      <p class="text-xl font-bold text-white">{{ akurasi }}%</p>
+    </div>
+    <div class="bg-yellow-800 bg-opacity-30 p-4 rounded-lg shadow text-center">
+      <p class="text-sm text-yellow-200">Presisi</p>
+      <p class="text-xl font-bold text-white">{{ presisi }}%</p>
+    </div>
+    <div class="bg-yellow-800 bg-opacity-30 p-4 rounded-lg shadow text-center">
+      <p class="text-sm text-yellow-200">Recall</p>
+      <p class="text-xl font-bold text-white">{{ recall }}%</p>
+    </div>
+    <div class="bg-yellow-800 bg-opacity-30 p-4 rounded-lg shadow text-center">
+      <p class="text-sm text-yellow-200">F1-Score</p>
+      <p class="text-xl font-bold text-white">{{ f1 }}%</p>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if klasifikasi_dict %}
+  <div class="mt-10">
+    <h3 class="text-lg font-bold text-yellow-300 mb-3">Classification Report</h3>
+    <div class="overflow-x-auto text-white text-sm">
+      <table class="table-auto w-full text-sm border-collapse rounded-lg overflow-hidden">
+        <thead class="bg-yellow-800 bg-opacity-40 text-yellow-200">
+          <tr>
+            <th class="px-4 py-2 text-left">Label</th>
+            <th class="px-4 py-2 text-center">Precision</th>
+            <th class="px-4 py-2 text-center">Recall</th>
+            <th class="px-4 py-2 text-center">F1-Score</th>
+            <th class="px-4 py-2 text-center">Support</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for label, row in klasifikasi_dict.items() %}
+          <tr class="hover:bg-yellow-900 hover:bg-opacity-20 transition">
+            <td class="px-4 py-2 font-medium text-yellow-100">{{ label }}</td>
+            <td class="px-4 py-2 text-center">{{ row['precision'] }}</td>
+            <td class="px-4 py-2 text-center">{{ row['recall'] }}</td>
+            <td class="px-4 py-2 text-center">{{ row['f1-score'] }}</td>
+            <td class="px-4 py-2 text-center">{{ row['support'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if confusion_matrix %}
+  <div class="mt-10">
+    <h3 class="text-lg font-bold text-yellow-300 mb-3">Confusion Matrix</h3>
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full text-sm border-collapse rounded-lg overflow-hidden">
+        <thead class="bg-yellow-800 bg-opacity-40 text-yellow-200">
+          <tr>
+            <th class="px-4 py-2 text-left">Actual \ Predicted</th>
+            {% for i in range(confusion_matrix[0]|length) %}
+            <th class="px-4 py-2 text-center">{{ i }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in confusion_matrix %}
+          <tr class="hover:bg-yellow-900 hover:bg-opacity-20 transition">
+            <td class="px-4 py-2 font-medium text-yellow-100">{{ loop.index0 }}</td>
+            {% for val in row %}
+            <td class="px-4 py-2 text-center">{{ val }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if error %}
+  <div class="bg-red-800 bg-opacity-30 p-4 rounded-lg shadow mt-4 text-white">
+    <p class="text-xl font-semibold">Error: {{ error }}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

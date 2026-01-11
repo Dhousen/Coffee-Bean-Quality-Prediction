@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+
+  <!-- Background Vanta -->
+  <div id="vanta-bg"></div>
+
+  <!-- Flex wrapper untuk center -->
+  <div class="flex items-center justify-center min-h-screen relative z-10">
+    <div class="w-full max-w-sm p-8 glass-effect">
+      <h2 class="text-3xl font-bold text-center text-yellow-300 mb-8">Login</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="mb-4">
+            <ul>
+              {% for category, message in messages %}
+                <li class="text-sm text-red-300">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form action="/login" method="POST" class="space-y-6">
+        <div class="input-field">
+          <input type="text" id="username" name="username" required placeholder=" " />
+          <label for="username">Username</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="password" name="password" required placeholder=" " />
+          <label for="password">Password</label>
+        </div>
+
+        <button type="submit" class="neon-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Login
+        </button>
+      </form>
+
+      <p class="mt-6 text-center text-sm text-white">
+        Belum punya akun?
+        <a href="/register" class="text-yellow-300 hover:text-yellow-400 hover:underline transition">Daftar di sini</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
